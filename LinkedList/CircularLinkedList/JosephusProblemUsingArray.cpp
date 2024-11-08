@@ -49,6 +49,6 @@ int main ()
     cout << "Enter position to be killed: ";
     cin >> k ;
     int killed = josephusProblem(arr,size,0,k,personLeft);
-    cout << "Winner: "<< killed << endl ;
+    cout << "Winner: "<< killed + 1 << endl ;
 }
 
