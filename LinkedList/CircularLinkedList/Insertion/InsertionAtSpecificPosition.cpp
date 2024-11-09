@@ -45,12 +45,12 @@ Node *InsertAtPos ( Node * head , int pos , int x  , int size )
     }
     if ( pos < 1 )
     {
-        cout << "Invalid Position\n";
+        cout << "Invalid Position/n";
         return head ;
     }
     if ( pos > size )
     {
-        cout << "Position Out of Bound\n";
+        cout << "Position Out of Bound/n";
         return head ;
     }
 

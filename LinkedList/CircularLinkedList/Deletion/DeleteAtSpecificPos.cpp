@@ -45,7 +45,7 @@ Node * deleteAtPos ( Node *head , int pos   )
    }
    if ( pos < 1  )
    {
-      cout << "Invalid Position /n";
+      cout << "Invalid Position \n";
       return head ;
    }
    if ( pos == 1 ) 
@@ -77,7 +77,7 @@ int main ( )
     int arr[5] = {0,2,4,6,8};
     Node *head = NULL;
     head = insertAtEnd (head , arr , 5 );
-    head = deleteAtPos (head , 4 );
+    head = deleteAtPos (head , 5 );
     
     
     Node *q = head ;
