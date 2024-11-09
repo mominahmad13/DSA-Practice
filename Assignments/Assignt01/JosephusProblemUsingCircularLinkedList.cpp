@@ -43,14 +43,18 @@ Node *JosephusProblem ( Node *head  , int m )
        return head ;
    }    
 
-   Node *prev = head ;
+   Node *prev = head    ;
 
-   for ( int i = 0 ; i < m -1 ; i ++ )
+   for ( int i = 1 ; i < m-1 ; i ++ )
    { 
        prev = prev->next ;
    }
        Node *toDelete = prev->next ;
        prev->next = toDelete->next ;
+       if (toDelete == head )
+       {
+          head = head->next ;  
+       }
        delete toDelete ;
        return ( JosephusProblem(prev->next , m));
 }
@@ -62,10 +66,13 @@ int main ( )
    cin >> n ;
    cout << "Enter position of person to killed: \n";
    cin >> m ;
-   
-   int arr [n] = {0};
+   int arr [n] ;
+   for ( int i = 0 ; i < n ; i++ )
+   {
+        arr[i] = i ;
+   }
    Node *head = NULL ;
    head = insertAtEnd( head, arr , n ) ;
    head = JosephusProblem(head,m);
-   cout << "Person Left: " << head->data + 1 << endl ;
+   cout << "Person Left: " << head->data  << endl ;
 }
