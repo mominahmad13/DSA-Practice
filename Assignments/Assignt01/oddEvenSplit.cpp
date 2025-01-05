@@ -36,11 +36,19 @@ Node *insertNode ( Node *head , int arr []  , int size )
          return head ;
 }
 
-void splitList (Node* head , Node* &evenHead ,Node * &oddHead )
+Node * splitList (Node* head )
 {
+    if ( head == NULL )
+    {
+        return head ;
+    }
+
     Node *temp = head ;
     Node *evenTail = NULL;
     Node *oddTail =NULL;
+    Node *evenHead = NULL ;
+    Node *oddHead = NULL ;
+
     while ( temp != NULL )
     {
         if ( temp->data % 2 == 0  )
@@ -72,12 +80,14 @@ void splitList (Node* head , Node* &evenHead ,Node * &oddHead )
          temp = temp->next ;
     }
 
-    if (evenTail != NULL) {
-        evenTail->next = NULL;
+     if (evenHead == NULL || oddHead == NULL ) {
+        evenTail->next = oddHead;
+        return evenHead;
     }
-    if (oddTail != NULL) {
-        oddTail->next = NULL;
-    }
+    evenTail->next = oddHead ;
+    oddTail->next = NULL ;
+    head = evenHead ;
+    return head ;
 }
 
 void printList(Node *head )
@@ -97,10 +107,8 @@ int main ( )
     Node *head = NULL;
     int arr[8] = {1,2,4,6,3,5,7,9};
     head = insertNode(head ,arr,8);
-    Node *evenHead = NULL; 
-    Node *oddHead = NULL;
-    splitList(head , evenHead , oddHead );
-    printList(evenHead);
-    printList(oddHead);
+    head =  splitList(head);
+    printList(head);
+    
 
 }
